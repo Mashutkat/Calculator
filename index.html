@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Калькулятор на JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Калькулятор на JavaScript</h1>
+    <form>
+      <label for="num1">Введите первое число:</label>
+      <input type="number" id="num1"/><br/><br/>
+
+      <label for="num2">Введите второе число:</label>
+      <input type="number" id="num2"/><br/><br/>
+
+      <label for="operator">Выберите операцию:</label>
+      <select id="operator">
+        <option selected value="+">Сложение</option>
+        <option value="-">Вычитание</option>
+        <option value="*">Умножение</option>
+        <option value="/">Деление</option>
+      </select><br/><br/>
+
+      <input type="button" value="Вычислить" onclick="calculate()"/>
+    </form>
+
+    <h2 id="result"></h2>
+
+    <script>
+      function calculate() {
+        let num1 = document.getElementById('num1').value;
+        let num2 = document.getElementById('num2').value;
+        let operator = document.getElementById('operator').value;
+        let result;
+
+        if (operator == '+') {
+          result = Number(num1) + Number(num2);
+        } else if (operator == '-') {
+          result = Number(num1) - Number(num2);
+        } else if (operator == '*') {
+          result = Number(num1) * Number(num2);
+        } else if (operator == '/') {
+          result = Number(num1) / Number(num2);
+        }
+
+        document.getElementById('result').innerHTML = `Результат: ${result}`;
+      }
+    </script>
+  </body>
+</html>
